@@ -488,7 +488,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 16246270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315c62dd60f61d049b5bb40b5d57aec3, type: 3}
+  m_Script: {fileID: 11500000, guid: 65781cd2dafe84e789ca9aebd14368a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 481318028}
@@ -3939,7 +3939,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

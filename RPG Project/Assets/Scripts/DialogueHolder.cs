@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DialogueHolder : MonoBehaviour {
 	public string dialogue;
-	private DialogueManager dialogueManager;
+	private NPCDialogueManager dialogueManager;
 
 	// Use this for initialization
 	void Start () {
-		dialogueManager = FindObjectOfType<DialogueManager> ();
+		dialogueManager = FindObjectOfType<NPCDialogueManager> ();
 	}
 	
 	// Update is called once per frame
