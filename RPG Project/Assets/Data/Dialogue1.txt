@@ -1,0 +1,8 @@
+Fong-Lim;Hey what's up;0;R
+Yoshiki;Nothing much man;0;L
+Fong-Lim;Oh that's cool;1;R
+Player;Restart:line,0;Continue:line,4
+Fong-Lim;This is a test;2;L
+Yoshiki;Test test test test;2;R
+
+

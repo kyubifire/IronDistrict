@@ -52,8 +52,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\ChoiceButton.cs" />
+     <Compile Include="Assets\Scripts\DialogueManager.cs" />
+     <Compile Include="Assets\Scripts\DialogueParser.cs" />
+     <Compile Include="Assets\Scripts\NPCMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <None Include="Assets\roguelike-pack\Spritesheet\spritesheetInfo.txt" />
+     <None Include="Assets\Data\Dialogue1.txt" />
      <None Include="Assets\roguelike-pack\License.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
