@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/DialogueCutScene.unity
+- path: Assets/Scenes/HealthScene.unity
   isLoaded: 1
   isActive: 1
