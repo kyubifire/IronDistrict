@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/BasicDialogueScene.unity
+- path: Assets/Scenes/BlacksmithScene.unity
   isLoaded: 1
   isActive: 1
