@@ -8,6 +8,8 @@ public class NPCDialogueManager : MonoBehaviour {
 	public Text dialogueText;
 	public bool dialogueActive;
 
+
+
 	// Use this for initialization
 	void Start () {
 		

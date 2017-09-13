@@ -30,3 +30,4 @@ C:\Users\Gabrielle\Desktop\Capstone\RPG Project\Temp\bin\Debug\UnityEngine.HoloL
 C:\Users\Gabrielle\Desktop\Capstone\RPG Project\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Gabrielle\Desktop\Capstone\RPG Project\obj\Debug\Assembly-CSharp.dll
 C:\Users\Gabrielle\Desktop\Capstone\RPG Project\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Gabrielle\Desktop\Capstone\RPG Project\Temp\bin\Debug\LitJson.dll

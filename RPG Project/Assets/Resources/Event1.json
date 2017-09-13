@@ -1,0 +1,24 @@
+{
+  "dialogues": [
+    {
+      "characterType": 1,
+      "name": "Breya",
+      "dialogueText":"Time to address the Call to Adventure."
+    },
+    {
+      "characterType": 0,
+      "name": "BestFriend",
+      "dialogueText":"Are you sure? I might need some coffee first."
+    },
+    {
+      "characterType": 1,
+      "name": "Breya",
+      "dialogueText":"I'm quite sure, I've never felt more alive."
+    },
+    {
+      "characterType": 0,
+      "name": "BestFriend",
+      "dialogueText":"Maybe we should consult the Mentor first."
+    }
+  ]
+}

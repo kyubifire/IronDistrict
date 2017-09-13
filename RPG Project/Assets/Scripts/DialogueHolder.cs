@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DialogueHolder : MonoBehaviour {
 	public string dialogue;
-	private NPCDialogueManager dialogueManager;
+	private NPCDialogueManager npcDialogueManager;
 
 	// Use this for initialization
 	void Start () {
-		dialogueManager = FindObjectOfType<NPCDialogueManager> ();
+		npcDialogueManager = FindObjectOfType<NPCDialogueManager> ();
 	}
 	
 	// Update is called once per frame
@@ -19,7 +19,7 @@ public class DialogueHolder : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.gameObject.name == "Player") {
 			if (Input.GetKeyUp(KeyCode.Space)) {
-				dialogueManager.showBox (dialogue);
+				npcDialogueManager.showBox (dialogue);
 			}
 		}
 	}
