@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\ChangeScene.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\Classes\IManager.cs" />
      <Compile Include="Assets\Scripts\Classes\NarrativeEvent.cs" />
@@ -70,10 +71,8 @@
      <Compile Include="Assets\Scripts\Utilities\Constants.cs" />
      <Compile Include="Assets\Scripts\Utilities\JSONFactory.cs" />
      <Compile Include="Assets\Scripts\Utilities\PanelConfig.cs" />
-     <None Include="Assets\roguelike-pack\Spritesheet\spritesheetInfo.txt" />
      <None Include="Assets\Data\Dialogue1.txt" />
      <None Include="Assets\Art\roguelike-modern-city-pack\Spritesheet\spritesheetInfo.txt" />
-     <None Include="Assets\roguelike-pack\License.txt" />
      <None Include="Assets\Art\roguelike-modern-city-pack\License.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -97,7 +96,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="LitJson">
- <HintPath>C:/Users/Gabrielle/Desktop/Capstone/RPG Project/Assets/Resources/LitJson.dll</HintPath>
+ <HintPath>C:/Users/Gabrielle/Desktop/capstone/IronDistrict/RPG Project/Assets/Resources/LitJson.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

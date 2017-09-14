@@ -13,5 +13,5 @@ public struct Dialogue {
 }
 
 public enum CharacterType {
-	Breya, BestFriend
+	Breya, Emilia, Guard
 }

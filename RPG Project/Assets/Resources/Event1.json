@@ -1,24 +1,49 @@
 {
   "dialogues": [
-    {
+	{
       "characterType": 1,
       "name": "Breya",
-      "dialogueText":"Time to address the Call to Adventure."
+      "dialogueText":""
     },
     {
       "characterType": 0,
-      "name": "BestFriend",
-      "dialogueText":"Are you sure? I might need some coffee first."
+      "name": "Soren",
+      "dialogueText":"Oy, Breya, hand me the wrench! The brass piping is coming loose on the furnace."
     },
     {
       "characterType": 1,
       "name": "Breya",
-      "dialogueText":"I'm quite sure, I've never felt more alive."
+      "dialogueText":"Oh! Uh... Here it is Mr. Soren!"
     },
     {
       "characterType": 0,
-      "name": "BestFriend",
-      "dialogueText":"Maybe we should consult the Mentor first."
+      "name": "Soren",
+      "dialogueText":"Ah, finally done! This baby will be keeping someone warm for the winter. Now, what were you trying to tell me earlier?"
+    },
+    {
+      "characterType": 1,
+      "name": "Breya",
+      "dialogueText":"I was just reminding you that I am leaving work early today. Emilia and I are planning on going scavenging tonight."
+    },
+    {
+      "characterType": 0,
+      "name": "Soren",
+      "dialogueText":"Hmph right. You did put in extra work yesterday... Very well. How long until you leave?"
+    },
+    {
+      "characterType": 1,
+      "name": "Breya",
+      "dialogueText":"I still have about two hours."
+    },
+    {
+      "characterType": 0,
+      "name": "Soren",
+      "dialogueText":"Then help me patch up this exhaust vent until then. Its hinges have come loose."
+    },
+    {
+      "characterType": 1,
+      "name": "Breya",
+      "dialogueText":"Yes sir!"
     }
   ]
 }

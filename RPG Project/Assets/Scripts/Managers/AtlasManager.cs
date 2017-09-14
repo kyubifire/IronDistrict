@@ -11,7 +11,7 @@ public class AtlasManager : MonoBehaviour, IManager {
 	public void BootSequence() {
 		Debug.Log (string.Format ("{0} is booting up", GetType ().Name));
 
-		sprites = Resources.LoadAll<Sprite> ("EventAtlas");
+		sprites = Resources.LoadAll<Sprite> ("DialogueSprites");
 		currentState = ManagerState.Completed;
 
 		Debug.Log (string.Format("{0} status = {1}", GetType().Name, currentState));
