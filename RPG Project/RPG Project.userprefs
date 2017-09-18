@@ -1,8 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DialogueParser.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Gear.cs">
     <Files>
-      <File FileName="Assets\Scripts\DialogueParser.cs" Line="4" Column="1" />
+      <File FileName="Assets\Scripts\Ally.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AllyManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gear.cs" Line="54" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
