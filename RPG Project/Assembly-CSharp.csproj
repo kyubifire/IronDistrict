@@ -58,7 +58,10 @@
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\Classes\IManager.cs" />
      <Compile Include="Assets\Scripts\Classes\NarrativeEvent.cs" />
+     <Compile Include="Assets\Scripts\combatTimer.cs" />
      <Compile Include="Assets\Scripts\DialogueHolder.cs" />
+     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
+     <Compile Include="Assets\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\Gear.cs" />
      <Compile Include="Assets\Scripts\GearManagement.cs" />
      <Compile Include="Assets\Scripts\LevelController.cs" />

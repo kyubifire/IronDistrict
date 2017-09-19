@@ -2,59 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class EnemyAttack : MonoBehaviour {
+	// call EnemyHealth class to get health value
+	public PlayerHealth currentHealth;
 
-public class Ally : MonoBehaviour {
-	
-	Animator animator;
-	SpriteRenderer spRen;
-	public string allyName;
+	//public string allyName;
 	public int maxDamage;
-	public int maxHealth;
-	public string attackType;
-	public int currentHealth;
 	public int currentDamage;
+	public string attackType;
+
 	public bool isAlive;
 	private bool isIncapacitated;
 
+	Animator animator;
+	SpriteRenderer spRen;
+
 	// Use this for initialization
 	void Start () {
-		currentHealth = maxHealth;
 		currentDamage = maxDamage;
 		isAlive = true;
 		animator = GetComponent<Animator>();
 		spRen = GetComponent<SpriteRenderer>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
-	//Checks if ally is dead
+		//Checks if enemy is dead
 		if (currentHealth <= 0) {
 			animator.SetBool ("Dead", true);
 		}
-
-	//checks if stunned or sleep, etc
+		//checks if stunned or sleep, etc
 		// else if (isIncapacitated) {}
-
-	//if all good
+		//if all good
 		else {
-			
-		}
 		
+		}
 	}
-	//character takes damage
+
+	//if enemy takes damage
 	public void damage(int _damage){
 		currentHealth = currentHealth - _damage;
-
-	//checks for death
+		//checks for death
 		if(currentHealth <= 0) {
-			ally_death ();
-
+			death ();
 		}
 	}
-
-	void ally_death(){
-		Debug.Log (allyName + "is Dead");
+	void death(){
+		//Debug.Log (allyName + "is Dead");
 		isAlive = false;
 	}
 }

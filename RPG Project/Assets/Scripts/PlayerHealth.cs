@@ -24,7 +24,6 @@ public class PlayerHealth : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		//playerAudio = GetComponent<AudioSource> ();
 		playerController = GetComponent<PlayerController> ();
-
 		// set initial health of player
 		currentHealth = startingHealth;
 	}
