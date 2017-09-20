@@ -28,9 +28,10 @@ public class EnemyAttack : MonoBehaviour {
 		return selectedGear;
 	}
 
-	string getGearType() {
+	//string 
+	void getGearType() {
 		Gear nextGear = enemyGears [enemyGears.Count - 1];
-		return nextGear.self.attackType;
+		//return nextGear.self.attackType;
 	}
 
 	void deleteGear() {

@@ -1,21 +1,28 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 	// attributes
-	public int startingHealth = 100;				// The amount of health the enemy starts game with
+	public int startingHealth = 50;				// The amount of health the enemy starts game with
 	public int currentHealth;
+	public int maxDamage;
+	public int currentDamage;
 	Animator anim;
 	public string enemyName;
 	public List<Gear> enemyGears;
 	SpriteRenderer enemySprite;
 	public string attackType;
 
+	// enemy-specific UI things
+	//public Slider healthSlider;
+
 	// enemy sounds
 	//	public AudioClip deathClip;              
 	                                           
 	bool isDead;
+	bool damaged;
 	bool canSwitch;
 	bool isSwitched;
 
@@ -31,23 +38,43 @@ public class Enemy : MonoBehaviour {
 		isSwitched = false;
 		canSwitch = true;
 		numGears = enemyGears.Count;
+		currentDamage = maxDamage;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (damaged) {
+			damaged = true;
+			//takeDamage ();
+			//damageImage.color = flashColor;
+		} 
+		//else {
+			//damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		//}
+		damaged = false;
 		
 	}
 
-	public void TakeDamage (int amount, Vector3 hitPoint) {
+	//public void TakeDamage (int amount, Vector3 hitPoint) {
 		// If the enemy is dead
-		if(isDead)
+		//if(isDead)
 			// no need to take damage so exit the function.
-			return;
+		//	return;
 		// Reduce the current health by the amount of damage sustained.
 		//currentHealth -= amount;
 		// If the current health is less than or equal to zero...
-		if(currentHealth <= 0) {
+		//if(currentHealth <= 0) {
 			// the enemy is dead.
+		//	enemyDeath ();
+		//}
+	//}
+
+	public void takeDamage (int amountOfDamage) {
+		damaged = true;
+		currentHealth -= amountOfDamage;
+		//.value = currentHealth;
+		//playerAudio.Play ();
+		if (currentHealth <= 0 && isDead) {
 			enemyDeath ();
 		}
 	}
@@ -59,10 +86,12 @@ public class Enemy : MonoBehaviour {
 		return selectedGear;
 	}
 
-	string getGearType() {
-		Gear nextGear = enemyGears [enemyGears.Count - 1];
-		return nextGear.self.attackType;
-	}
+	//string 
+	//void getGearType() {
+	//	Gear nextGear = enemyGears [enemyGears.Count - 1];
+		//return nextGear.self.attackType;
+	//	return;
+	//}
 
 	void deleteGear() {
 		//delete

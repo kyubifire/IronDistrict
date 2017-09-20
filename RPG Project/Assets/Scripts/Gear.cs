@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Gear : MonoBehaviour {
 	public bool isAlive;
-	private string playerAttackType;
-	private string enemyAttackType;
-	//public Ally self;
+
+	public string playerAttackType;
+	public string enemyAttackType;
+
 	public Player playerSelf;
 	public Enemy enemySelf;
 
@@ -20,10 +21,11 @@ public class Gear : MonoBehaviour {
 		enemyAttackType = enemySelf.attackType;
 		playerAnimator = playerSelf.GetComponent <Animator>();
 		enemyAnimator = enemySelf.GetComponent<Animator> ();
-		updateGearSprite();
+		updatePlayerGearSprite();
+		updateEnemyGearSprite ();
 	}
 
-	void updateGearSprite(){
+	void updatePlayerGearSprite(){
 		//attackType = self.attackType;
 		if (playerSelf.attackType == "green") {
 			playerAnimator.SetInteger ("gearType", 0);
@@ -36,70 +38,92 @@ public class Gear : MonoBehaviour {
 			playerAnimator.SetBool ("dead", true);
 		}
 	}
+
+	void updateEnemyGearSprite(){
+		//attackType = self.attackType;
+		if (enemySelf.attackType == "green") {
+			enemyAnimator.SetInteger ("gearType", 0);
+		} else if (enemySelf.attackType == "blue") {
+			enemyAnimator.SetInteger ("gearType", 1);
+		} else if (enemySelf.attackType == "red") {
+			enemyAnimator.SetInteger ("gearType", 2);
+		}
+		if (!isAlive) {
+			enemyAnimator.SetBool ("dead", true);
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
-		updateGearSprite();
-		if (playerSelf.currentHealth < 0 || enemySelf.currentHealth) {
+		updatePlayerGearSprite();
+		updateEnemyGearSprite ();
+		if (playerSelf.currentHealth < 0 || enemySelf.currentHealth < 0) {
 			isAlive = false;
 		}
 	}
 
-	public void battle(Gear other){
+	//public string getGearType() {
+
+//	}
+
+	//moved to CombatManager
+	//public void battle(Gear other){
 		//if self.attackType == red
-		if (attackType == "red" && other.attackType == "blue") {
+		//if (attackType == "red" && other.attackType == "blue") {
 			//if bad matchup
-			badAttack (other.self);
-		} else if (attackType == "red" && other.attackType == "red") {
+		//	badAttack (other.self);
+		//} else if (attackType == "red" && other.attackType == "red") {
 			//if eh matchup
-			goodAttack (other.self);
-		} else if (attackType == "red" && other.attackType == "green") {
+			//goodAttack (other.self);
+		//} else if (attackType == "red" && other.attackType == "green") {
 			//if super matchup
-			superAttack (other.self);
-		}
+		//	superAttack (other.self);
+		//}
 
 		//if self.attackType == blue
-		else if (attackType == "blue" && other.attackType == "green") {
+		//else if (attackType == "blue" && other.attackType == "green") {
 			//if bad matchup
-			badAttack (other.self);
-		} else if (attackType == "blue" && other.attackType == "blue") {
+		//	badAttack (other.self);
+		//} else if (attackType == "blue" && other.attackType == "blue") {
 			//if eh matchup
-			goodAttack (other.self);
-		} else if (attackType == "blue" && other.attackType == "red") {
+		//	goodAttack (other.self);
+		//} else if (attackType == "blue" && other.attackType == "red") {
 			//if super matchup
-			superAttack (other.self);
-		}
+		//	superAttack (other.self);
+		//}
 		//if self.attackType == green
-		else if (attackType == "green" && other.attackType == "red") {
+		//else if (attackType == "green" && other.attackType == "red") {
 			//if bad matchup
-			badAttack (other.self);
-		} else if (attackType == "green" && other.attackType == "green") {
+		//	badAttack (other.self);
+		//} else if (attackType == "green" && other.attackType == "green") {
 			//if eh matchup
-			goodAttack (other.self);
-		} else if (attackType == "green" && other.attackType == "blue") {
-			//if super matchup
-			superAttack (other.self);
-		} else {
-			Debug.Log ("You're A dipSHIt check your type names");
-		}
-	}
-		
-	void badAttack(Ally other){
+		//	goodAttack (other.self);
+		//} else if (attackType == "green" && other.attackType == "blue") {
+		//	//if super matchup
+		//	superAttack (other.self);
+		//} else {
+		//	Debug.Log ("You're A dipSHIt check your type names");
+		//}
+	//}
+
+	// moved to CombatManager
+//	void badAttack(Ally other){
 	//bad attack hurts self
-		self.damage(other.currentDamage);
-		Debug.Log (other.name + " Bad Attacks " + self.name);
-	}
+	//	self.damage(other.currentDamage);
+//		Debug.Log (other.name + " Bad Attacks " + self.name);
+	//}
 
-	void goodAttack(Ally other){
+	// moved to combatManager
+//	void goodAttack(Ally other){
 	//good Attack hurts enemy and ally
-		other.damage(self.currentDamage);
-		self.damage(other.currentDamage);
-		Debug.Log (self.name + " Good Attacks " + other.name);
-	}
-
-	void superAttack(Ally other){
+	//	other.damage(self.currentDamage);
+	//	self.damage(other.currentDamage);
+	//	Debug.Log (self.name + " Good Attacks " + other.name);
+	//
+	/// moved to CombatManger
+	//void superAttack(Ally other){
 	//super attack hurts enemy
-		other.damage (self.currentDamage);
-		Debug.Log (self.name + " Super Attacks " + other.name);
-	}
+	//	other.damage (self.currentDamage);
+	//	Debug.Log (self.name + " Super Attacks " + other.name);
+	//}
 }

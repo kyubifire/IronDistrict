@@ -57,10 +57,10 @@ public class PlayerAttack : MonoBehaviour {
 
 	//Gear #4 will be at the bottom, so that is the one that goes first.
 	//this is for combat resolution purposes. Don't include animation code here.
-	string getGearType() {
-		Gear nextGear = playerGears[playerGears.Count - 1];
-		return nextGear.self.attackType;
-	}
+	//string getGearType() {
+	//	Gear nextGear = playerGears[playerGears.Count - 1];
+	//	return nextGear.self.attackType;
+	//}
 
 	void deleteGear() {
 		//delete gear sprite somehow

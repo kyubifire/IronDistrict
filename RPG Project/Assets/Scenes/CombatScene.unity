@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 110356943}
   - component: {fileID: 110356946}
   - component: {fileID: 110356944}
+  - component: {fileID: 110356945}
   m_Layer: 0
   m_Name: gearEnemy1
   m_TagString: Untagged
@@ -323,6 +324,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &110356945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 110356942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f484983f65944f07a261ac12f1a326d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 0
+  playerAttackType: blue
+  enemyAttackType: green
+  playerSelf: {fileID: 187627638}
+  enemySelf: {fileID: 159344490}
 --- !u!212 &110356946
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -376,7 +393,6 @@ GameObject:
   - component: {fileID: 159344492}
   - component: {fileID: 159344491}
   - component: {fileID: 159344490}
-  - component: {fileID: 159344493}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -405,11 +421,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 159344488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62934a7ad4b29e24b9e6d470422a878f, type: 3}
+  m_Script: {fileID: 11500000, guid: b226e9b3dc4b8b642a56df2e2b726222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  currentHealth: 100
+  currentHealth: 0
+  maxDamage: 5
+  currentDamage: 0
+  enemyName: Enemy1
+  enemyGears:
+  - {fileID: 110356945}
+  attackType: green
+  numGears: 1
+  gearIndex: 0
 --- !u!95 &159344491
 Animator:
   serializedVersion: 3
@@ -469,20 +493,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &159344493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 159344488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194365d678e21504a8fe1af58abab530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyGears: []
-  numGears: 0
-  gearIndex: 0
 --- !u!1 &168522303
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +504,6 @@ GameObject:
   - component: {fileID: 168522306}
   - component: {fileID: 168522307}
   - component: {fileID: 168522305}
-  - component: {fileID: 168522308}
   m_Layer: 5
   m_Name: Emilia
   m_TagString: Untagged
@@ -523,15 +532,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 168522303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7036a26bbcc404092afa7f701a5c626a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6b169a832341043b0c1960d30f0653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  currentHealth: 100
+  currentHealth: 0
+  playerName: 
+  maxDamage: 10
+  currentDamage: 0
+  playerGears:
+  - {fileID: 227843646}
+  attackType: red
   healthSlider: {fileID: 1121484493}
   damageImage: {fileID: 1661154649}
   flashSpeed: 5
   flashColor: {r: 1, g: 0, b: 0, a: 0.1}
+  combatTimer: {fileID: 536645942}
+  oldKey: 0
+  newKey: 0
+  timer: 11
 --- !u!212 &168522306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -591,21 +610,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &168522308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 168522303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d190715d9651b94cab2c88a8c5a9b72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerGears: []
-  oldKey: 0
-  newKey: 0
-  timer: 0
 --- !u!1 &187627635
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +621,6 @@ GameObject:
   - component: {fileID: 187627639}
   - component: {fileID: 187627637}
   - component: {fileID: 187627638}
-  - component: {fileID: 187627640}
   m_Layer: 5
   m_Name: Breya
   m_TagString: Player
@@ -663,15 +666,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 187627635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7036a26bbcc404092afa7f701a5c626a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6b169a832341043b0c1960d30f0653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  currentHealth: 100
+  currentHealth: 0
+  playerName: Breya
+  maxDamage: 10
+  currentDamage: 0
+  playerGears:
+  - {fileID: 1658120200}
+  attackType: blue
   healthSlider: {fileID: 1872576663}
   damageImage: {fileID: 1661154649}
   flashSpeed: 5
   flashColor: {r: 1, g: 0, b: 0, a: 0.1}
+  combatTimer: {fileID: 536645942}
+  oldKey: 0
+  newKey: 0
+  timer: 11
 --- !u!212 &187627639
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -714,21 +727,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &187627640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 187627635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d190715d9651b94cab2c88a8c5a9b72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerGears: []
-  oldKey: 0
-  newKey: 0
-  timer: 0
 --- !u!1 &215962036
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +772,7 @@ GameObject:
   - component: {fileID: 227843643}
   - component: {fileID: 227843644}
   - component: {fileID: 227843645}
+  - component: {fileID: 227843646}
   m_Layer: 5
   m_Name: emilia_gear
   m_TagString: Untagged
@@ -853,6 +852,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &227843646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 227843642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f484983f65944f07a261ac12f1a326d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 0
+  playerAttackType: red
+  enemyAttackType: blue
+  playerSelf: {fileID: 168522305}
+  enemySelf: {fileID: 1016748743}
 --- !u!1 &258399594
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1014,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 415923111}
+  - component: {fileID: 415923112}
   m_Layer: 0
   m_Name: Enemy gear
   m_TagString: Untagged
@@ -1020,6 +1036,63 @@ Transform:
   - {fileID: 1839737540}
   m_Father: {fileID: 617504016}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &415923112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 415923110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f484983f65944f07a261ac12f1a326d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 0
+  playerAttackType: 
+  enemyAttackType: 
+  playerSelf: {fileID: 0}
+  enemySelf: {fileID: 0}
+--- !u!1 &536645941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 536645943}
+  - component: {fileID: 536645942}
+  m_Layer: 0
+  m_Name: combatTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &536645942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 536645941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f6c44a94c79db42a3f96436b14bcab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeRemaining: 11
+--- !u!4 &536645943
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 536645941}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1564952412}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617504015
 GameObject:
@@ -1277,7 +1350,6 @@ GameObject:
   - component: {fileID: 1016748745}
   - component: {fileID: 1016748744}
   - component: {fileID: 1016748743}
-  - component: {fileID: 1016748746}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -1306,11 +1378,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1016748741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62934a7ad4b29e24b9e6d470422a878f, type: 3}
+  m_Script: {fileID: 11500000, guid: b226e9b3dc4b8b642a56df2e2b726222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  currentHealth: 100
+  currentHealth: 0
+  maxDamage: 0
+  currentDamage: 0
+  enemyName: Enemy2
+  enemyGears:
+  - {fileID: 1839737542}
+  attackType: blue
+  numGears: 1
+  gearIndex: 0
 --- !u!95 &1016748744
 Animator:
   serializedVersion: 3
@@ -1370,20 +1450,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &1016748746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1016748741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194365d678e21504a8fe1af58abab530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyGears: []
-  numGears: 0
-  gearIndex: 0
 --- !u!1 &1121484491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,7 +1659,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1564952412}
   - component: {fileID: 1564952411}
-  - component: {fileID: 1564952413}
   - component: {fileID: 1564952410}
   - component: {fileID: 1564952409}
   - component: {fileID: 1564952408}
@@ -1670,22 +1735,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 536645943}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1564952413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1564952407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67f6c44a94c79db42a3f96436b14bcab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeRemaining: 11
 --- !u!1 &1658120196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1750,7 @@ GameObject:
   - component: {fileID: 1658120197}
   - component: {fileID: 1658120198}
   - component: {fileID: 1658120199}
+  - component: {fileID: 1658120200}
   m_Layer: 5
   m_Name: breya_gear
   m_TagString: Untagged
@@ -1775,6 +1830,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1658120200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1658120196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f484983f65944f07a261ac12f1a326d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 0
+  playerAttackType: blue
+  enemyAttackType: green
+  playerSelf: {fileID: 187627638}
+  enemySelf: {fileID: 159344490}
 --- !u!1 &1661154647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,6 +2199,7 @@ GameObject:
   - component: {fileID: 1839737540}
   - component: {fileID: 1839737543}
   - component: {fileID: 1839737541}
+  - component: {fileID: 1839737542}
   m_Layer: 0
   m_Name: GearEnemy2
   m_TagString: Untagged
@@ -2165,6 +2237,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1839737542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1839737539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f484983f65944f07a261ac12f1a326d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 0
+  playerAttackType: red
+  enemyAttackType: blue
+  playerSelf: {fileID: 168522305}
+  enemySelf: {fileID: 1016748743}
 --- !u!212 &1839737543
 SpriteRenderer:
   m_ObjectHideFlags: 0
