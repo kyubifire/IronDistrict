@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\Managers\PanelManager.cs" />
      <Compile Include="Assets\Scripts\NPCDialogueManager.cs" />
      <Compile Include="Assets\Scripts\NPCMovement.cs" />
+     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Utilities\Constants.cs" />

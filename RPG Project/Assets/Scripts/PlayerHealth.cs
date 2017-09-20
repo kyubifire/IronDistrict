@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour {
 		damaged = true;
 		currentHealth -= amountOfDamage;
 		healthSlider.value = currentHealth;
-		playerAudio.Play ();
+		//playerAudio.Play ();
 
 		if (currentHealth <= 0 && isDead) {
 			playerDeath ();

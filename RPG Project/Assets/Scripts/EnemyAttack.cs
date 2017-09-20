@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour {
+	public List<Gear> enemyGears;
 	// call EnemyHealth class to get health value
 	public PlayerHealth currentHealth;
+	//public int currentHealth;
 
 	//public string allyName;
 	public int maxDamage;
@@ -28,7 +30,7 @@ public class EnemyAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Checks if enemy is dead
-		if (currentHealth <= 0) {
+		if (currentHealth.currentHealth <= 0) {
 			animator.SetBool ("Dead", true);
 		}
 		//checks if stunned or sleep, etc
@@ -41,9 +43,9 @@ public class EnemyAttack : MonoBehaviour {
 
 	//if enemy takes damage
 	public void damage(int _damage){
-		currentHealth = currentHealth - _damage;
+		currentHealth.currentHealth = currentHealth.currentHealth- _damage;
 		//checks for death
-		if(currentHealth <= 0) {
+		if(currentHealth.currentHealth <= 0) {
 			death ();
 		}
 	}
