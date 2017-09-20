@@ -1,11 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
-public class PlayerAttack : MonoBehaviour {
+public class Player : MonoBehaviour {
+	// player attributes
+	public int startingHealth = 100;
+	public int currentHealth;
+	public string playerName;
+	Animator anim;
+	PlayerController playerController;
+	SpriteRenderer playerSprite;
 	public List<Gear> playerGears;
-	//public string playerName;
+	public string attackType;
+
+	// player-specific UI things
+	public Slider healthSlider;
+	public Image damageImage;
+	public float flashSpeed = 5f;
+	public Color flashColor = new Color(1f, 0f, 0f, 0.1f);
+
+	// player sounds
+	//public AudioClip deatchClip;
+	//AudioSource playerAudio;
+
+	bool isDead;
+	bool damaged;
+
 	public int oldKey;
 	public int newKey;
 	public int timer;
@@ -14,16 +35,25 @@ public class PlayerAttack : MonoBehaviour {
 	void Start () {
 		oldKey = 0;
 		newKey = 0;
-		//time = 11;
+		anim = GetComponent<Animator> ();
+		playerSprite = GetComponent<SpriteRenderer>();
+		//playerAudio = GetComponent<AudioSource> ();
+		playerController = GetComponent<PlayerController> ();
+		// set initial health of player
+		currentHealth = startingHealth;
 	}
-
-	//public enum States {
-	//	idle,
-	//	attacking
-	//}
-
+		
 	// Update is called once per frame
 	void Update () {
+		if (damaged) {
+			damageImage.color = flashColor;
+		} else {
+			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		}
+		damaged = false;
+	}
+
+	public void switchGears() {
 		//Switch Gears. 	Should add some kind of visual gear selection
 		if (oldKey == 0) {
 			if (Input.GetKeyDown (KeyCode.Alpha1)) {
@@ -62,6 +92,25 @@ public class PlayerAttack : MonoBehaviour {
 		return nextGear.self.attackType;
 	}
 
+	public void takeDamage (int amountOfDamage) {
+		damaged = true;
+		currentHealth -= amountOfDamage;
+		healthSlider.value = currentHealth;
+		//playerAudio.Play ();
+		if (currentHealth <= 0 && isDead) {
+			playerDeath ();
+		}
+	}
+
+	void playerDeath() {
+		isDead = true;
+		anim.SetTrigger ("Die");
+		Debug.Log (playerName + "is Dead");
+		playerController.enabled = false;
+		//playerAudio.clip = deatchClip;
+		//playerAudio.Play ();
+	}
+
 	void deleteGear() {
 		//delete gear sprite somehow
 
@@ -69,4 +118,3 @@ public class PlayerAttack : MonoBehaviour {
 		playerGears.RemoveAt(playerGears.Count - 1);
 	}
 }
-

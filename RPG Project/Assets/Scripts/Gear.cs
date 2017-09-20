@@ -4,37 +4,43 @@ using UnityEngine;
 
 public class Gear : MonoBehaviour {
 	public bool isAlive;
-	private string attackType;
-	public Ally self;
-	Animator animator;
+	private string playerAttackType;
+	private string enemyAttackType;
+	//public Ally self;
+	public Player playerSelf;
+	public Enemy enemySelf;
+
+	Animator playerAnimator;
+	Animator enemyAnimator;
 
 	// Use this for initialization
 	void Start () {
 		isAlive = true;
-		attackType = self.attackType;
-		animator = GetComponent <Animator>();
+		playerAttackType = playerSelf.attackType;
+		enemyAttackType = enemySelf.attackType;
+		playerAnimator = playerSelf.GetComponent <Animator>();
+		enemyAnimator = enemySelf.GetComponent<Animator> ();
 		updateGearSprite();
 	}
 
 	void updateGearSprite(){
-		attackType = self.attackType;
-		if (attackType == "green") {
-			animator.SetInteger ("gearType", 0);
-		} else if (attackType == "blue") {
-
-			animator.SetInteger ("gearType", 1);
-		} else if (attackType == "red") {
-			animator.SetInteger ("gearType", 2);
+		//attackType = self.attackType;
+		if (playerSelf.attackType == "green") {
+			playerAnimator.SetInteger ("gearType", 0);
+		} else if (playerSelf.attackType == "blue") {
+			playerAnimator.SetInteger ("gearType", 1);
+		} else if (playerSelf.attackType == "red") {
+			playerAnimator.SetInteger ("gearType", 2);
 		}
 		if (!isAlive) {
-			animator.SetBool ("dead", true);
+			playerAnimator.SetBool ("dead", true);
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		updateGearSprite();
-		if (self.currentHealth < 0) {
+		if (playerSelf.currentHealth < 0 || enemySelf.currentHealth) {
 			isAlive = false;
 		}
 	}

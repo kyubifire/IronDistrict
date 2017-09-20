@@ -2,19 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemyAttack : MonoBehaviour {
+public class EnemyAttackAI : MonoBehaviour {
 	public List<Gear> enemyGears;
 	bool canSwitch;
 	bool isSwitched;
 	private bool canBattle;
 	private bool startBattle;
 
-	public enum enemyState {
-		idle, 
-		changeGear, 
-		selectGear,
-		dead
-	}
+	public int numGears;
+
+	//public enum enemyState {
+	//	idle, 
+	//	changeGear, 
+	//	selectGear,
+	//	dead
+	//}
 	//private enemyState currentState = enemyState.idle;
 
 	//public enemyState state {
@@ -96,4 +98,6 @@ public class EnemyAttack : MonoBehaviour {
 
 	//public void setStates (enemyState s) {
 	//}
+
+
 }

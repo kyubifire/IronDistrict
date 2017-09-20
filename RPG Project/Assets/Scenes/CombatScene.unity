@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 159344492}
   - component: {fileID: 159344491}
   - component: {fileID: 159344490}
+  - component: {fileID: 159344493}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -468,6 +469,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &159344493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159344488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 194365d678e21504a8fe1af58abab530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyGears: []
+  numGears: 0
+  gearIndex: 0
 --- !u!1 &168522303
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +494,7 @@ GameObject:
   - component: {fileID: 168522306}
   - component: {fileID: 168522307}
   - component: {fileID: 168522305}
+  - component: {fileID: 168522308}
   m_Layer: 5
   m_Name: Emilia
   m_TagString: Untagged
@@ -575,6 +591,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &168522308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 168522303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d190715d9651b94cab2c88a8c5a9b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGears: []
+  oldKey: 0
+  newKey: 0
+  timer: 0
 --- !u!1 &187627635
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +617,7 @@ GameObject:
   - component: {fileID: 187627639}
   - component: {fileID: 187627637}
   - component: {fileID: 187627638}
+  - component: {fileID: 187627640}
   m_Layer: 5
   m_Name: Breya
   m_TagString: Player
@@ -682,6 +714,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &187627640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 187627635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d190715d9651b94cab2c88a8c5a9b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGears: []
+  oldKey: 0
+  newKey: 0
+  timer: 0
 --- !u!1 &215962036
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +929,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 358315284}
-  - component: {fileID: 358315285}
   m_Layer: 5
   m_Name: Allies
   m_TagString: Untagged
@@ -910,21 +956,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &358315285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 358315283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47a9a75a0eb9a4d9881d4bb5f550e010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allyRoster:
-  - {fileID: 0}
-  - {fileID: 0}
-  enemyRoster: []
 --- !u!1 &370386963
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1029,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 617504016}
-  - component: {fileID: 617504017}
   m_Layer: 5
   m_Name: Gear
   m_TagString: Untagged
@@ -1026,20 +1056,6 @@ RectTransform:
   m_AnchoredPosition: {x: -368.3, y: -112.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &617504017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 617504015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b2accdf8ae447229b1a7be50066c0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yourGears: []
-  enemyGears: []
-  txt: {fileID: 0}
 --- !u!1 &703848571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,6 +1277,7 @@ GameObject:
   - component: {fileID: 1016748745}
   - component: {fileID: 1016748744}
   - component: {fileID: 1016748743}
+  - component: {fileID: 1016748746}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -1353,6 +1370,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1016748746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1016748741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 194365d678e21504a8fe1af58abab530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyGears: []
+  numGears: 0
+  gearIndex: 0
 --- !u!1 &1121484491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,6 +1685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f6c44a94c79db42a3f96436b14bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeRemaining: 11
 --- !u!1 &1658120196
 GameObject:
   m_ObjectHideFlags: 0

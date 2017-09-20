@@ -24,7 +24,7 @@ public class combatTimer : MonoBehaviour {
 		}
 	}
 
-	void resetTimer() {
+	public void resetTimer() {
 		timeRemaining = 11;
 	}
 }

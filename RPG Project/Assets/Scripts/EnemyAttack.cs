@@ -4,53 +4,37 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour {
 	public List<Gear> enemyGears;
-	// call EnemyHealth class to get health value
-	public PlayerHealth currentHealth;
-	//public int currentHealth;
 
-	//public string allyName;
-	public int maxDamage;
-	public int currentDamage;
-	public string attackType;
+	bool canSwitch;
+	bool isSwitched;
 
-	public bool isAlive;
-	private bool isIncapacitated;
+	public int numGears;
+	public int gearIndex;
 
-	Animator animator;
-	SpriteRenderer spRen;
-
-	// Use this for initialization
-	void Start () {
-		currentDamage = maxDamage;
-		isAlive = true;
-		animator = GetComponent<Animator>();
-		spRen = GetComponent<SpriteRenderer>();
+	void Start() {
+		isSwitched = false;
+		canSwitch = true;
+		numGears = enemyGears.Count;
 	}
 
-	// Update is called once per frame
-	void Update () {
-		//Checks if enemy is dead
-		if (currentHealth.currentHealth <= 0) {
-			animator.SetBool ("Dead", true);
-		}
-		//checks if stunned or sleep, etc
-		// else if (isIncapacitated) {}
-		//if all good
-		else {
-		
-		}
+	void Update() {
+
 	}
 
-	//if enemy takes damage
-	public void damage(int _damage){
-		currentHealth.currentHealth = currentHealth.currentHealth- _damage;
-		//checks for death
-		if(currentHealth.currentHealth <= 0) {
-			death ();
-		}
+	Gear chooseGear() {
+		// return a random index of number of gears in list for enemy selection
+		gearIndex = Random.Range (0, numGears);
+		Gear selectedGear = enemyGears [gearIndex];
+		return selectedGear;
 	}
-	void death(){
-		//Debug.Log (allyName + "is Dead");
-		isAlive = false;
+
+	string getGearType() {
+		Gear nextGear = enemyGears [enemyGears.Count - 1];
+		return nextGear.self.attackType;
+	}
+
+	void deleteGear() {
+		//delete
+		enemyGears.RemoveAt(enemyGears.Count-1);
 	}
 }

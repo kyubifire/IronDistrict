@@ -58,9 +58,12 @@
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\Classes\IManager.cs" />
      <Compile Include="Assets\Scripts\Classes\NarrativeEvent.cs" />
+     <Compile Include="Assets\Scripts\CombatManager.cs" />
      <Compile Include="Assets\Scripts\combatTimer.cs" />
      <Compile Include="Assets\Scripts\DialogueHolder.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemyAttack.cs" />
+     <Compile Include="Assets\Scripts\EnemyAttackAI.cs" />
      <Compile Include="Assets\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\Gear.cs" />
      <Compile Include="Assets\Scripts\GearManagement.cs" />
@@ -69,8 +72,10 @@
      <Compile Include="Assets\Scripts\Managers\AtlasManager.cs" />
      <Compile Include="Assets\Scripts\Managers\MasterManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PanelManager.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\NPCDialogueManager.cs" />
      <Compile Include="Assets\Scripts\NPCMovement.cs" />
+     <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
