@@ -43,17 +43,17 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (damaged) {
-			damaged = true;
+		//if (damaged) {
+		//	damaged = true;
 			//takeDamage ();
 			//damageImage.color = flashColor;
 		} 
 		//else {
 			//damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
 		//}
-		damaged = false;
+		//damaged = false;
 		
-	}
+	//}
 
 	//public void TakeDamage (int amount, Vector3 hitPoint) {
 		// If the enemy is dead

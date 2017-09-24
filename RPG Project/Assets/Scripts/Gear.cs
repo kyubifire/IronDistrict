@@ -5,8 +5,8 @@ using UnityEngine;
 public class Gear : MonoBehaviour {
 	public bool isAlive;
 
-	public string playerAttackType;
-	public string enemyAttackType;
+	private string playerAttackType;
+	private string enemyAttackType;
 
 	public Player playerSelf;
 	public Enemy enemySelf;
@@ -24,7 +24,7 @@ public class Gear : MonoBehaviour {
 		updatePlayerGearSprite();
 		updateEnemyGearSprite ();
 	}
-
+	// Both enemy and player sprites need updated info for inheriting gear type from gear class.. GET MITCHIO'S HELP 
 	void updatePlayerGearSprite(){
 		//attackType = self.attackType;
 		if (playerSelf.attackType == "green") {

@@ -4,26 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour {
-	public List<Player> allies;
+	//public List<Player> allies;
 	public List<Enemy> enemy;
 
     public List<Gear> playerGears;
 	public List<Gear> enemyGears;
 
-    //public int oldKey;
-    //public int newKey;
-
-	public combatTimer timer;
+	combatTimer timer;
 	private float time;
 
-	private Player playerSelf;
-	private Enemy enemySelf;
+	Player playerSelf;
+	Enemy enemySelf;
 
-	private PlayerHealth playerHealth;
-	private EnemyHealth enemyHealth;
-
-	//public string playerName;
-	//public string enemyName;
 
 	private int currentHealth;
 	private int currentEnemyHealth;
@@ -37,14 +29,24 @@ public class CombatManager : MonoBehaviour {
 	private string playerAttackType;
 	private string enemyAttackType;
 
-	public bool isSwitched;
-	public bool canSwitch;
-	public bool canBattle;
+	bool isSwitched;
+	bool canSwitch;
+	bool canBattle;
+	bool isTimeExpired;
+
+	private int oldKey;
+	private int newKey;
 
 	void Start() {
+
+		oldKey = 0;
+		newKey = 0;
+		isTimeExpired = false;
 		time = timer.timeRemaining;
+
 		currentHealth = playerSelf.startingHealth;
 		currentEnemyHealth = enemySelf.startingHealth;
+
 		playerAnimator = playerSelf.GetComponent<Animator>();
 		enemyAnimator = enemySelf.GetComponent<Animator> ();
 
@@ -58,43 +60,83 @@ public class CombatManager : MonoBehaviour {
 	void Update() {
 		if (currentHealth <= 0) {
 			playerAnimator.SetBool ("Dead", true);
-		} else if (currentEnemyHealth <= 0) {
+		}
+
+		if (currentEnemyHealth <= 0) {
 			enemyAnimator.SetBool ("Dead", true);
-		} else {
-			startBattle ();
+		} 
+
+
+		//else {
+		//	startBattle ();
+		//}
+	}
+
+	public void switchGears() {
+		//Switch Gears. 	Should add some kind of visual gear selection
+		if (!isTimeExpired) {
+			if (oldKey == 0) {
+				if (Input.GetKeyDown (KeyCode.Alpha1)) {
+					oldKey = 1;
+				} else if (Input.GetKeyDown (KeyCode.Alpha2)) {
+					oldKey = 2;
+				} else if (Input.GetKeyDown (KeyCode.Alpha3) && playerGears.Count >= 3) {
+					oldKey = 3;
+				} else if (Input.GetKeyDown (KeyCode.Alpha4) && playerGears.Count >= 4) {
+					oldKey = 4;
+				}
+			} else {
+				if (Input.GetKeyDown (KeyCode.Alpha1)) {
+					newKey = 1;
+				} else if (Input.GetKeyDown (KeyCode.Alpha2)) {
+					newKey = 2;
+				} else if (Input.GetKeyDown (KeyCode.Alpha3) && playerGears.Count >= 3) {
+					newKey = 3;
+				} else if (Input.GetKeyDown (KeyCode.Alpha4) && playerGears.Count >= 4) {
+					newKey = 4;
+				}
+				//Switch gear positions
+				Gear temp = playerGears [oldKey - 1];
+				playerGears [oldKey - 1] = playerGears [newKey - 1];
+				playerGears [newKey - 1] = temp;
+				oldKey = 0;
+				newKey = 0;
+			}
 		}
 	}
 
 	void startBattle() {
-		if (playerAttackType == "red" && enemyAttackType == "blue") {
-			//if bad matchup
-			badAttack ();
-		} else if (playerAttackType == "red" && enemyAttackType == "red") {
-			//if eh matchup
-			goodAttack ();
-		} else if (playerAttackType == "red" && enemyAttackType == "green") {
-			//if super matchup
-			superAttack ();
-		} else if (playerAttackType == "blue" && enemyAttackType == "green") {
-			//if bad matchup
-			badAttack ();
-		} else if (playerAttackType == "blue" && enemyAttackType == "blue") {
-			//if eh matchup
-			goodAttack ();
-		} else if (playerAttackType == "blue" && enemyAttackType == "red") {
-			//if super matchup
-			superAttack ();
-		} else if (playerAttackType == "green" && enemyAttackType == "red") {
-			//if bad matchup
-		badAttack ();
-		} else if (playerAttackType == "green" && enemyAttackType == "green") {
-			//if eh matchup
-			goodAttack ();
-		} else if (playerAttackType == "green" && enemyAttackType == "blue") {
-			//if super matchup
-			superAttack ();
-		} else {
-			Debug.Log ("You're A dipSHIt check your type names");
+		if (time > 0) { 
+			if (playerAttackType == "red" && enemyAttackType == "blue") {
+				//if bad matchup
+				badAttack ();
+			} else if (playerAttackType == "red" && enemyAttackType == "red") {
+				//if eh matchup
+				goodAttack ();
+			} else if (playerAttackType == "red" && enemyAttackType == "green") {
+				//if super matchup
+				superAttack ();
+			} else if (playerAttackType == "blue" && enemyAttackType == "green") {
+				//if bad matchup
+				badAttack ();
+			} else if (playerAttackType == "blue" && enemyAttackType == "blue") {
+				//if eh matchup
+				goodAttack ();
+			} else if (playerAttackType == "blue" && enemyAttackType == "red") {
+				//if super matchup
+				superAttack ();
+			} else if (playerAttackType == "green" && enemyAttackType == "red") {
+				//if bad matchup
+				badAttack ();
+			} else if (playerAttackType == "green" && enemyAttackType == "green") {
+				//if eh matchup
+				goodAttack ();
+			} else if (playerAttackType == "green" && enemyAttackType == "blue") {
+				//if super matchup
+				superAttack ();
+			} else {
+				Debug.Log ("You're A dipSHIt check your type names");
+			}
 		}
 	}
 
@@ -126,6 +168,12 @@ public class CombatManager : MonoBehaviour {
 
 		for (int g = 0; g < enemyGears.Count; g++){
 			Debug.Log (enemyGears [g].playerSelf.playerName + ": " + enemyGears [g].playerSelf.currentHealth);
+		}
+	}
+
+	void timeExpired() {
+		if (time < 0) {
+			isTimeExpired = true;
 		}
 	}
 }
