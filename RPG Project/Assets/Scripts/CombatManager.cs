@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour {
 	//public List<Player> allies;
-	public List<Enemy> enemy;
+	//public List<Enemy> enemy;
 
-    public List<Gear> playerGears;
+	public List<Gear> playerGears;	
 	public List<Gear> enemyGears;
 
 	combatTimer timer;
@@ -29,7 +29,7 @@ public class CombatManager : MonoBehaviour {
 	private string playerAttackType;
 	private string enemyAttackType;
 
-	bool isSwitched;
+	//bool isSwitched;
 	bool canSwitch;
 	bool canBattle;
 	bool isTimeExpired;
@@ -41,6 +41,9 @@ public class CombatManager : MonoBehaviour {
 
 		oldKey = 0;
 		newKey = 0;
+		canSwitch = true;
+		canBattle = true;
+		//isSwitched = false;
 		isTimeExpired = false;
 		time = timer.timeRemaining;
 
@@ -55,6 +58,8 @@ public class CombatManager : MonoBehaviour {
 
 		playerAttackType = playerSelf.attackType;
 		enemyAttackType = enemySelf.attackType;
+
+		// playerGears = playerSelf.playerGears;
 	}
 
 	void Update() {
@@ -66,6 +71,9 @@ public class CombatManager : MonoBehaviour {
 			enemyAnimator.SetBool ("Dead", true);
 		} 
 
+		if (canSwitch == true) {
+			switchGears ();
+		}
 
 		//else {
 		//	startBattle ();
@@ -74,6 +82,8 @@ public class CombatManager : MonoBehaviour {
 
 	public void switchGears() {
 		//Switch Gears. 	Should add some kind of visual gear selection
+		// accessing a list, gets gear sprite of new gear and replaces old gear that
+		// set gear velocity  to a value and once timer expires use that velocity to move gear to bottom corner. Can also modify position
 		if (!isTimeExpired) {
 			if (oldKey == 0) {
 				if (Input.GetKeyDown (KeyCode.Alpha1)) {
@@ -101,6 +111,11 @@ public class CombatManager : MonoBehaviour {
 				playerGears [newKey - 1] = temp;
 				oldKey = 0;
 				newKey = 0;
+			}
+
+			if (canBattle == true) {
+				canSwitch = false;				// disable player and enemy's ability for switching mid battle
+				startBattle ();
 			}
 		}
 	}
@@ -162,13 +177,13 @@ public class CombatManager : MonoBehaviour {
 	//PRINTS OUT THE HEALTH OF YOUR PLAYERS
 	void checkHealth(){
 		//debug if health is changing
-		for (int g = 0; g < playerGears.Count; g++) {
-			Debug.Log (playerGears [g].playerSelf.playerName + ": " + playerGears [g].playerSelf.currentHealth);
-		}
-
-		for (int g = 0; g < enemyGears.Count; g++){
-			Debug.Log (enemyGears [g].playerSelf.playerName + ": " + enemyGears [g].playerSelf.currentHealth);
-		}
+//		for (int g = 0; g < playerGears.Count; g++) {
+//			Debug.Log (playerGears [g].playerSelf.playerName + ": " + playerGears [g].playerSelf.currentHealth);
+//		}
+//
+//		for (int g = 0; g < enemyGears.Count; g++){
+//			Debug.Log (enemyGears [g].playerSelf.playerName + ": " + enemyGears [g].playerSelf.currentHealth);
+//		}
 	}
 
 	void timeExpired() {

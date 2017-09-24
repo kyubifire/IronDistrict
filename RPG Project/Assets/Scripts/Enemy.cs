@@ -11,9 +11,10 @@ public class Enemy : MonoBehaviour {
 	public int currentDamage;
 	Animator anim;
 	public string enemyName;
-	public List<Gear> enemyGears;
+	Gear gear;
+	//public List<Gear> enemyGears;
 	//SpriteRenderer enemySprite;
-	public string attackType;
+	public string enemyAttackType;
 
 	// enemy-specific UI things
 	//public Slider healthSlider;
@@ -37,13 +38,15 @@ public class Enemy : MonoBehaviour {
 		currentHealth = startingHealth;				// Setting the current health when the enemy first spawns.
 		isSwitched = false;
 		canSwitch = true;
-		numGears = enemyGears.Count;
+		//numGears = enemyGears.Count;
 		currentDamage = maxDamage;
+		enemyAttackType = gear.attackType;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//if (damaged) {
+		//if (damaged) 
 		//	damaged = true;
 			//takeDamage ();
 			//damageImage.color = flashColor;
@@ -79,12 +82,12 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	Gear chooseGear() {
+	//Gear chooseGear() {
 		// return a random index of number of gears in list for enemy selection
-		gearIndex = Random.Range (0, numGears);
-		Gear selectedGear = enemyGears [gearIndex];
-		return selectedGear;
-	}
+	//	gearIndex = Random.Range (0, numGears);
+	//	Gear selectedGear = enemyGears [gearIndex];
+	//	return selectedGear;
+	//}
 
 	//string 
 	//void getGearType() {

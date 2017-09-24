@@ -13,8 +13,9 @@ public class Player : MonoBehaviour {
 	Animator anim;
 	PlayerController playerController;
 	//SpriteRenderer playerSprite;
-	public List<Gear> playerGears;					// need to reference combatManager or move code for gear switching
-	public string attackType;						// this only a string we can input gear type into.. Needs to be inherited based on gear itself (inheriteed from gear class)
+	//public List<Gear> playerGears;					// need to reference combatManager or move code for gear switching
+	Gear gear;
+	public string playerAttackType;						// this only a string we can input gear type into.. Needs to be inherited based on gear itself (inheriteed from gear class)
 
 	// player-specific UI things
 	public Slider healthSlider;
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour {
 		//isTimeExpired = false;
 		//playerAudio = GetComponent<AudioSource> ();
 		//switchGears ();
+		playerAttackType = gear.attackType; 
 	}
 		
 	// Update is called once per frame

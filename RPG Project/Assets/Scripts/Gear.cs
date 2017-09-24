@@ -5,61 +5,81 @@ using UnityEngine;
 public class Gear : MonoBehaviour {
 	public bool isAlive;
 
-	private string playerAttackType;
-	private string enemyAttackType;
+	//private string playerAttackType;
+//	private string enemyAttackType;
+	public string attackType;
 
-	public Player playerSelf;
-	public Enemy enemySelf;
+	//public Player playerSelf;
+	//public Enemy enemySelf;
 
-	Animator playerAnimator;
-	Animator enemyAnimator;
+	//Animator playerAnimator;
+	//Animator enemyAnimator;
+
+	Animator gearAnimator;
 
 	// Use this for initialization
 	void Start () {
 		isAlive = true;
-		playerAttackType = playerSelf.attackType;
-		enemyAttackType = enemySelf.attackType;
-		playerAnimator = playerSelf.GetComponent <Animator>();
-		enemyAnimator = enemySelf.GetComponent<Animator> ();
-		updatePlayerGearSprite();
-		updateEnemyGearSprite ();
+		//playerAttackType = playerSelf.attackType;
+		//enemyAttackType = enemySelf.attackType;
+		//playerAnimator = playerSelf.GetComponent <Animator>();
+		//enemyAnimator = enemySelf.GetComponent<Animator> ();
+		gearAnimator = GetComponent<Animator>();
+		//updatePlayerGearSprite();
+		//updateEnemyGearSprite ();
+		updateGearSprite();
 	}
 	// Both enemy and player sprites need updated info for inheriting gear type from gear class.. GET MITCHIO'S HELP 
-	void updatePlayerGearSprite(){
-		//attackType = self.attackType;
-		if (playerSelf.attackType == "green") {
-			playerAnimator.SetInteger ("gearType", 0);
-		} else if (playerSelf.attackType == "blue") {
-			playerAnimator.SetInteger ("gearType", 1);
-		} else if (playerSelf.attackType == "red") {
-			playerAnimator.SetInteger ("gearType", 2);
-		}
-		if (!isAlive) {
-			playerAnimator.SetBool ("dead", true);
-		}
-	}
+//	void updatePlayerGearSprite(){
+//		//attackType = self.attackType;
+//		if (playerSelf.attackType == "green") {
+//			playerAnimator.SetInteger ("gearType", 0);
+//		} else if (playerSelf.attackType == "blue") {
+//			playerAnimator.SetInteger ("gearType", 1);
+//		} else if (playerSelf.attackType == "red") {
+//			playerAnimator.SetInteger ("gearType", 2);
+//		}
+//		if (!isAlive) {
+//			playerAnimator.SetBool ("dead", true);
+//		}
+//	}
 
-	void updateEnemyGearSprite(){
+//	void updateEnemyGearSprite(){
+//		//attackType = self.attackType;
+//		if (enemySelf.attackType == "green") {
+//			enemyAnimator.SetInteger ("gearType", 0);
+//		} else if (enemySelf.attackType == "blue") {
+//			enemyAnimator.SetInteger ("gearType", 1);
+//		} else if (enemySelf.attackType == "red") {
+//			enemyAnimator.SetInteger ("gearType", 2);
+//		}
+//		if (!isAlive) {
+//			enemyAnimator.SetBool ("dead", true);
+//		}
+//	}
+
+	void updateGearSprite(){
 		//attackType = self.attackType;
-		if (enemySelf.attackType == "green") {
-			enemyAnimator.SetInteger ("gearType", 0);
-		} else if (enemySelf.attackType == "blue") {
-			enemyAnimator.SetInteger ("gearType", 1);
-		} else if (enemySelf.attackType == "red") {
-			enemyAnimator.SetInteger ("gearType", 2);
+		if (attackType == "green") {
+			gearAnimator.SetInteger ("gearType", 0);
+		} else if (attackType == "blue") {
+			gearAnimator.SetInteger ("gearType", 1);
+		} else if (attackType == "red") {
+			gearAnimator.SetInteger ("gearType", 2);
 		}
 		if (!isAlive) {
-			enemyAnimator.SetBool ("dead", true);
+			gearAnimator.SetBool ("dead", true);
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		updatePlayerGearSprite();
-		updateEnemyGearSprite ();
-		if (playerSelf.currentHealth < 0 || enemySelf.currentHealth < 0) {
-			isAlive = false;
-		}
+		//updatePlayerGearSprite();
+		//updateEnemyGearSprite ();
+		updateGearSprite();
+		//if (playerSelf.currentHealth < 0 || enemySelf.currentHealth < 0) {
+		//	isAlive = false;
+		//}
 	}
 
 	//public string getGearType() {
