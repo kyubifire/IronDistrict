@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Background
+  - Gears
+  - Characters
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
   - name: Ground
     uniqueID: 808572437
     locked: 0
-  - name: Player
+  - name: Gears
+    uniqueID: 2423168819
+    locked: 0
+  - name: Characters
     uniqueID: 1396110403
     locked: 0

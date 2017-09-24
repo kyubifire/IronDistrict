@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
 	Animator anim;
 	public string enemyName;
 	public List<Gear> enemyGears;
-	SpriteRenderer enemySprite;
+	//SpriteRenderer enemySprite;
 	public string attackType;
 
 	// enemy-specific UI things
@@ -26,14 +26,14 @@ public class Enemy : MonoBehaviour {
 	bool canSwitch;
 	bool isSwitched;
 
-	public int numGears;
-	public int gearIndex;
+	private int numGears;
+	private int gearIndex;
 
 	// Use this for initialization
 	void Start () {
 		// Setting up the references.
 		anim = GetComponent <Animator> ();
-		enemySprite = GetComponent<SpriteRenderer>();
+		//enemySprite = GetComponent<SpriteRenderer>();
 		currentHealth = startingHealth;				// Setting the current health when the enemy first spawns.
 		isSwitched = false;
 		canSwitch = true;

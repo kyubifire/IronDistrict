@@ -4,26 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour {
+	public List<Player> allies;
+	public List<Enemy> enemy;
+
     public List<Gear> playerGears;
 	public List<Gear> enemyGears;
 
-    public int oldKey;
-    public int newKey;
+    //public int oldKey;
+    //public int newKey;
 
 	public combatTimer timer;
-	public float time;
+	private float time;
 
-	public Player playerSelf;
-	public Enemy enemySelf;
+	private Player playerSelf;
+	private Enemy enemySelf;
 
-	public PlayerHealth playerHealth;
-	public EnemyHealth enemyHealth;
+	private PlayerHealth playerHealth;
+	private EnemyHealth enemyHealth;
 
 	//public string playerName;
 	//public string enemyName;
 
-	public int currentHealth;
-	public int currentEnemyHealth;
+	private int currentHealth;
+	private int currentEnemyHealth;
 
 	Animator playerAnimator;
 	Animator enemyAnimator;

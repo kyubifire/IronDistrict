@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b226e9b3dc4b8b642a56df2e2b726222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 50
   currentHealth: 0
   maxDamage: 5
   currentDamage: 0
@@ -432,8 +432,6 @@ MonoBehaviour:
   enemyGears:
   - {fileID: 110356945}
   attackType: green
-  numGears: 1
-  gearIndex: 0
 --- !u!95 &159344491
 Animator:
   serializedVersion: 3
@@ -537,7 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
-  playerName: 
+  playerName: Emilia
   maxDamage: 10
   currentDamage: 0
   playerGears:
@@ -548,9 +546,6 @@ MonoBehaviour:
   flashSpeed: 5
   flashColor: {r: 1, g: 0, b: 0, a: 0.1}
   combatTimer: {fileID: 536645942}
-  oldKey: 0
-  newKey: 0
-  timer: 11
 --- !u!212 &168522306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -682,9 +677,6 @@ MonoBehaviour:
   flashSpeed: 5
   flashColor: {r: 1, g: 0, b: 0, a: 0.1}
   combatTimer: {fileID: 536645942}
-  oldKey: 0
-  newKey: 0
-  timer: 11
 --- !u!212 &187627639
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1381,16 +1373,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b226e9b3dc4b8b642a56df2e2b726222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 50
   currentHealth: 0
-  maxDamage: 0
+  maxDamage: 5
   currentDamage: 0
   enemyName: Enemy2
   enemyGears:
   - {fileID: 1839737542}
   attackType: blue
-  numGears: 1
-  gearIndex: 0
 --- !u!95 &1016748744
 Animator:
   serializedVersion: 3
@@ -1925,6 +1915,7 @@ GameObject:
   - component: {fileID: 1718866180}
   - component: {fileID: 1718866179}
   - component: {fileID: 1718866178}
+  - component: {fileID: 1718866182}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2010,6 +2001,33 @@ RectTransform:
   m_AnchoredPosition: {x: 375, y: 116.5}
   m_SizeDelta: {x: 750, y: 233}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1718866182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1718866177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50f2cc4f4c12e9941ae847f848327204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allies:
+  - {fileID: 187627638}
+  - {fileID: 168522305}
+  enemy:
+  - {fileID: 159344490}
+  - {fileID: 1016748743}
+  playerGears:
+  - {fileID: 1658120200}
+  - {fileID: 227843646}
+  enemyGears:
+  - {fileID: 110356945}
+  - {fileID: 1839737542}
+  timer: {fileID: 536645942}
+  isSwitched: 0
+  canSwitch: 0
+  canBattle: 0
 --- !u!1 &1748481950
 GameObject:
   m_ObjectHideFlags: 0

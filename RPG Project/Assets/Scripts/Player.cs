@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 	public int currentDamage;
 	Animator anim;
 	PlayerController playerController;
-	SpriteRenderer playerSprite;
+	//SpriteRenderer playerSprite;
 	public List<Gear> playerGears;
 	public string attackType;
 
@@ -32,16 +32,16 @@ public class Player : MonoBehaviour {
 	bool damaged;
 	bool isTimeExpired;
 
-	public int oldKey;
-	public int newKey;
-	public int timer;
+	private int oldKey;
+	private int newKey;
+	private int timer;
 
 	// Use this for initialization
 	void Start () {
 		oldKey = 0;
 		newKey = 0;
 		anim = GetComponent<Animator> ();
-		playerSprite = GetComponent<SpriteRenderer> ();
+		//playerSprite = GetComponent<SpriteRenderer> ();
 		playerController = GetComponent<PlayerController> ();
 		// set initial health of player
 		currentHealth = startingHealth;
@@ -60,7 +60,6 @@ public class Player : MonoBehaviour {
 			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
 		}
 		damaged = false;
-
 		//timeExpired ();
 	}
 
@@ -87,7 +86,6 @@ public class Player : MonoBehaviour {
 				} else if (Input.GetKeyDown (KeyCode.Alpha4) && playerGears.Count >= 4) {
 					newKey = 4;
 				}
-
 				//Switch gear positions
 				Gear temp = playerGears [oldKey - 1];
 				playerGears [oldKey - 1] = playerGears [newKey - 1];
@@ -111,9 +109,9 @@ public class Player : MonoBehaviour {
 		currentHealth -= amountOfDamage;
 		healthSlider.value = currentHealth;
 		//playerAudio.Play ();
-		//if (currentHealth <= 0 && isDead) {
-		//	playerDeath ();
-		//}
+		if (currentHealth <= 0 && isDead) {
+			playerDeath ();
+		}
 	}
 
 	//character gives damage
