@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Enemy_Death
+  m_Name: Breya_Death
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,9 +18,9 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0
+    - time: 0.06666667
       value: {fileID: 21300000, guid: 4661970ceed784a1190bf8be6ed6fd32, type: 3}
-    - time: 1
+    - time: 2.0333333
       value: {fileID: 21300000, guid: 4661970ceed784a1190bf8be6ed6fd32, type: 3}
     attribute: m_Sprite
     path: 
@@ -48,7 +48,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0333333
+    m_StopTime: 2.0666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

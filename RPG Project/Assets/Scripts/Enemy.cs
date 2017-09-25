@@ -11,10 +11,10 @@ public class Enemy : MonoBehaviour {
 	public int currentDamage;
 	Animator anim;
 	public string enemyName;
-	Gear gear;
+	public Gear gear;
 	//public List<Gear> enemyGears;
 	//SpriteRenderer enemySprite;
-	public string enemyAttackType;
+	//public string enemyAttackType;
 
 	// enemy-specific UI things
 	//public Slider healthSlider;
@@ -24,23 +24,26 @@ public class Enemy : MonoBehaviour {
 	                                           
 	bool isDead;
 	bool damaged;
-	bool canSwitch;
-	bool isSwitched;
+	//bool canSwitch;
+	//bool isSwitched;
 
 	private int numGears;
 	private int gearIndex;
 
 	// Use this for initialization
 	void Start () {
+		damaged = false;
 		// Setting up the references.
 		anim = GetComponent <Animator> ();
 		//enemySprite = GetComponent<SpriteRenderer>();
 		currentHealth = startingHealth;				// Setting the current health when the enemy first spawns.
-		isSwitched = false;
-		canSwitch = true;
+		//isSwitched = false;
+		//canSwitch = true;
 		//numGears = enemyGears.Count;
 		currentDamage = maxDamage;
-		enemyAttackType = gear.attackType;
+//		enemyAttackType = gear.attackType;
+		Debug.Log (enemyName + " Health :" + currentHealth);
+		Debug.Log (enemyName + " Damage :" + currentDamage);
 
 	}
 	
@@ -96,10 +99,10 @@ public class Enemy : MonoBehaviour {
 	//	return;
 	//}
 
-	void deleteGear() {
+	//void deleteGear() {
 		//delete
-		enemyGears.RemoveAt(enemyGears.Count-1);
-	}
+	//	enemyGears.RemoveAt(enemyGears.Count-1);
+	//}
 
 	void enemyDeath () {
 		// The enemy is dead.

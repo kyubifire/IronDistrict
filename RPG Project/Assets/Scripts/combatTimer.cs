@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class combatTimer : MonoBehaviour {
-	public float timeRemaining = 11;
+	public float timeRemaining = 5;
 
 	// Use this for initialization
 	void Start () {

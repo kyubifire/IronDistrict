@@ -4,18 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
+	public Gear playerGear;
 	// player attributes
 	public int startingHealth = 100;
 	public int currentHealth;
 	public string playerName;
 	public int maxDamage;
 	public int currentDamage;
-	Animator anim;
+	public Animator anim;
 	PlayerController playerController;
-	//SpriteRenderer playerSprite;
-	//public List<Gear> playerGears;					// need to reference combatManager or move code for gear switching
-	Gear gear;
-	public string playerAttackType;						// this only a string we can input gear type into.. Needs to be inherited based on gear itself (inheriteed from gear class)
+	private string playerAttackType;						// this only a string we can input gear type into.. Needs to be inherited based on gear itself (inheriteed from gear class)
 
 	// player-specific UI things
 	public Slider healthSlider;
@@ -27,42 +25,26 @@ public class Player : MonoBehaviour {
 	//public AudioClip deatchClip;
 	//AudioSource playerAudio;
 
-	//public combatTimer combatTimer;
-
-	bool isDead;
-	bool damaged;
-	//bool isTimeExpired;
-
-///	private int oldKey;
-//	private int newKey;
-//	private int timer;
+	public bool isDead;
+	public bool damaged;
 
 	// Use this for initialization
 	void Start () {
-		//oldKey = 0;
-		//newKey = 0;
+		//GameObject gearGameObject = GameObject.Find("Gear");
 		anim = GetComponent<Animator> ();
-		//playerSprite = GetComponent<SpriteRenderer> ();
 		playerController = GetComponent<PlayerController> ();
 		// set initial health of player
 		currentHealth = startingHealth;
 		currentDamage = maxDamage;
-		//timer = (int)combatTimer.timeRemaining;
-		//isTimeExpired = false;
-		//playerAudio = GetComponent<AudioSource> ();
-		//switchGears ();
-		playerAttackType = gear.attackType; 
+		playerGear = GetComponent<Gear> ();
+		//playerAttackType = playerGear.attackType;
+
+		Debug.Log (playerName + " Health :" + currentHealth);
+		Debug.Log (playerName + " Damage :" + currentDamage);
 	}
 		
 	// Update is called once per frame
 	void Update () {
-		//if (damaged) {
-		//	damageImage.color = flashColor;
-		//} else {
-		//	damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-		//}
-		//damaged = false;
-		//timeExpired ();
 	}
 
 //	public void switchGears() {
