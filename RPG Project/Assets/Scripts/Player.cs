@@ -39,8 +39,8 @@ public class Player : MonoBehaviour {
 		playerGear = GetComponent<Gear> ();
 		//playerAttackType = playerGear.attackType;
 
-		Debug.Log (playerName + " Health :" + currentHealth);
-		Debug.Log (playerName + " Damage :" + currentDamage);
+		//Debug.Log (playerName + " Health :" + currentHealth);
+		//Debug.Log (playerName + " Damage :" + currentDamage);
 	}
 		
 	// Update is called once per frame
@@ -89,6 +89,7 @@ public class Player : MonoBehaviour {
 
 	//character takes damage
 	public void takeDamage (int amountOfDamage) {
+		Debug.Log("!!! PLAYER HAS BEEN HIT !!! ");
 		damaged = true;
 		currentHealth -= amountOfDamage;
 		healthSlider.value = currentHealth;

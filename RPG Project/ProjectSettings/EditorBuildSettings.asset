@@ -5,15 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Dialogue_Scene1.unity
     guid: ad2adaf3fdadc5048949162684a02542
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BlacksmithShopScene.unity
     guid: 9167316ab01bcad47925494f7726b453
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Dialogue_Scene2.unity
     guid: ee2ea24595e63644d98dbbe146e7d3f2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameBAttle1.unity
     guid: dc877d78c69bf420a802f245cea7d7c1
+  - enabled: 1
+    path: Assets/Scenes/CombatScene2.unity
+    guid: 6ef32fd63d9635c44bd59394465ceefd

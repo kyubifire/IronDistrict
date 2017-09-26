@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class combatTimer : MonoBehaviour {
-	public float timeRemaining = 5;
+	public float timeRemaining = 6;
+	public float WaitTime = 2f;
 
 	// Use this for initialization
 	void Start () {
@@ -21,10 +22,13 @@ public class combatTimer : MonoBehaviour {
 			GUI.Label (new Rect (450, 20, 200, 100), "Time: " + (int)timeRemaining);
 		} else {
 			GUI.Label (new Rect (450, 20, 100, 100), "Time's Up");
+
+			// small delay before function call
+			StartCoroutine("resetTimer", WaitTime);
 		}
 	}
 
 	public void resetTimer() {
-		timeRemaining = 11;
+		timeRemaining = 6;
 	}
 }

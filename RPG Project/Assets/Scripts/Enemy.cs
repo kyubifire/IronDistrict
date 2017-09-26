@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour {
 		//numGears = enemyGears.Count;
 		currentDamage = maxDamage;
 //		enemyAttackType = gear.attackType;
-		Debug.Log (enemyName + " Health :" + currentHealth);
-		Debug.Log (enemyName + " Damage :" + currentDamage);
+		//Debug.Log (enemyName + " Health :" + currentHealth);
+		//Debug.Log (enemyName + " Damage :" + currentDamage);
 
 	}
 	
@@ -76,6 +76,7 @@ public class Enemy : MonoBehaviour {
 	//}
 
 	public void takeDamage (int amountOfDamage) {
+		Debug.Log("!!! ENEMY HAS BEEN HIT !!!");
 		damaged = true;
 		currentHealth -= amountOfDamage;
 		//.value = currentHealth;
