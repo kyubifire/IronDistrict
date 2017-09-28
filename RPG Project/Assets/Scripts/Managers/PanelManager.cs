@@ -18,8 +18,11 @@ public class PanelManager : MonoBehaviour, IManager {
 
 		rightPanel = GameObject.Find ("RightCharacterPanel").GetComponent<PanelConfig> ();
 		leftPanel = GameObject.Find ("LeftCharacterPanel").GetComponent<PanelConfig> ();
+        
+        //This is running the wrong dialogue sequence
 		currentEvent = JSONAssembly.RunJSONFactoryForScene (1);
-		InitializePanels ();
+
+        InitializePanels ();
 
 		Debug.Log (string.Format ("{0} status = {1}", GetType().Name, currentState));
 	}

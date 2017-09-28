@@ -29,8 +29,8 @@ public class Gear : MonoBehaviour {
 		} else if (attackType == "red") {
 			gearAnimator.SetInteger ("gearType", 2);
 		}
-		if (!isAlive) {
+		/*if (!isAlive) {
 			gearAnimator.SetBool ("dead", true);
-		}
+		}*/
 	}
 }

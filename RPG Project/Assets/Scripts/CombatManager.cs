@@ -117,16 +117,16 @@ public class CombatManager : MonoBehaviour {
 					playerAttackType = playerGears [1].attackType;
 				}
 			}
-			Gear temp2 = enemyGears[0];
+			/* Gear temp2 = enemyGears[0];
 			if (enemyGears.Count >= 2) {
-				gearIndex = Random.Range (0, numEnemyGears);  
+                gearIndex = Random.Range (0, numEnemyGears);  
 				enemyGears [0] = enemyGears [gearIndex];
 				enemyGears [gearIndex] = temp2;
 
 				string temp2Type = enemyGears [0].attackType;
 				enemyGears [0].attackType = enemyGears [gearIndex].attackType;
 				enemyGears [gearIndex].attackType = temp2Type;
-			}
+			} */
 
 			enemyAttackType = enemyGears [gearIndex].attackType;
 		} else {

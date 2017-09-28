@@ -42,7 +42,7 @@ public class PanelConfig : MonoBehaviour {
 
 		foreach (char letter in dialogueText) {
 			dialogue.text += letter;
-			yield return new WaitForSeconds (0.05f);
+			yield return new WaitForSeconds (0.02f);
 		}
 	}
 }
