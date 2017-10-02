@@ -1,8 +1,0 @@
-Soren;Oy, Breya, hand me the wrench! The brass piping is coming loose on the furnace.;0;R
-Breya;Oh! Uh… Here it is Mr. Soren!;0;L
-Soren;Ah, finally done! This baby will be keeping someone warm for the winter. Now, what were you trying to tell me earlier?;0;R
-Breya;I was just reminding you that I am leaving work early today. Emilia and I are planning on going scavenging tonight.;0;L
-Soren;Hmph right. You did put in extra work yesterday... Very well. How long until you leave?;0;R
-Breya;I still have about two hours.;0;L
-Soren;Then help me patch up this exhaust vent until then. Its hinges have come loose.;0;R
-Breya;Yes sir!;0;L
