@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ArrowGame : MonoBehaviour {
 										
@@ -61,12 +62,13 @@ public class ArrowGame : MonoBehaviour {
 	public int consecutiveHits;
 	public int attackPoints;
 
-
+    //Checks whether win state has been reached
+    private bool win; 
 
 	// Use this for initialization
 	void Start () {
-		
 
+        win = false;
 		attackPoints = 0;
 		totalCards = 0;
 		correctCards = 0;
@@ -94,6 +96,11 @@ public class ArrowGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //If Game is won and user presses the return key, load next scene
+        if (win && Input.GetKeyUp(KeyCode.Return)) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
 		
 										//when the attack bar is full you attack and it resets the bar
 		if (attackPoints >= 50) {
@@ -137,7 +144,7 @@ public class ArrowGame : MonoBehaviour {
 			Instantiate(Victory);
 			enemy.changeState (66);
 			enemyGauge.transform.localScale = new Vector3 (((float)12.4 * enemyHealth / enemyMaxHealth), .5f, 1f);
-
+            win = true;
 
 			timeEnd = Time.time - 1;
 			int y = 0;
